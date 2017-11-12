@@ -16,7 +16,6 @@ Usage:
     resp.status # 200
 """
 
-import json
 
 from oto import error
 from oto import status
@@ -50,6 +49,15 @@ class Response:
         """
 
         return 200 <= self.status < 300 and not self.errors
+
+    def __nonzero__(self):
+        """If the request has been successful. (Python 2)
+
+        Returns:
+            boolean: if the response is considered successful.
+        """
+
+        return self.__bool__()
 
 
 def create_fatal_response(message=None):
@@ -97,7 +105,7 @@ def create_not_found_response(message=None):
             strings to dict.)
 
     Returns:
-        Response: the “not found” response object.
+        Response: the `not found` response object.
     """
 
     return create_error_response(

@@ -1,5 +1,3 @@
-from unittest.mock import patch
-
 import pytest
 
 from oto import response
@@ -32,11 +30,11 @@ def test_response_creation_with_errors():
     """Test the response creation with errors.
     """
 
-    error = 'something'
-    resp = response.Response(errors=error)
+    error_msg = 'something'
+    resp = response.Response(errors=error_msg)
     assert not resp.message
     assert not resp
-    assert resp.errors == error
+    assert resp.errors == error_msg
     assert resp.status == 400  # default
 
 

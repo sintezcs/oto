@@ -1,8 +1,7 @@
 import json
-from unittest.mock import patch
 
 from oto import response
-from oto.adaptors import flask
+from oto.adaptors import flask_adaptor as flask
 
 
 def test_flaskify_dict_response():
