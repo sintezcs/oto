@@ -12,7 +12,7 @@ setup(
         'Standardize communication between the different layers of an '
         'application.'),
     license='MIT',
-    packages=find_packages(),
+    packages=find_packages(exclude=["tests.*", "tests"]),
     include_package_data=True,
     zip_safe=False,
     classifiers=[
